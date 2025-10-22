@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 public class RacingCarTest {
 
     private static final int MOVE_FORWARD = 4;
+    private static final int NOT_MOVE = 3;
 
     private RacingCar racingCar;
 
@@ -98,5 +99,19 @@ public class RacingCarTest {
         assertEquals(0, racingCar.getPosition("pobi"));
         assertEquals(0, racingCar.getPosition("woni"));
         assertEquals(0, racingCar.getPosition("jun"));
+    }
+
+    @DisplayName("랜덤 값을 받아 4 이상이 나올 시 앞으로 전진")
+    @Test
+    void 랜덤_값을_받아_4_이상이_나올_시_앞으로_전진 () {
+        //given
+        String[] cars =  racingCar.createCars("pobi,woni,jun");
+        racingCar.initializeCars(cars);
+
+        //when
+        racingCar.moveCar(MOVE_FORWARD);
+
+        //then
+        assertEquals(1, racingCar.getPosition("pobi"));
     }
 }
