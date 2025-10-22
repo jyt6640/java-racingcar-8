@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -8,6 +9,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class RacingCarTest {
+
+    private static int MOVE_FORWARD = 4;
 
     private RacingCar racingCar;
 
@@ -23,10 +26,10 @@ public class RacingCarTest {
         String input = "pobi,woni,jun";
 
         //when
-        String[] cars = racingCar.createCars(input);
+        String[] result = racingCar.createCars(input);
 
         //then
-        assertArrayEquals(new String[]{"pobi", "woni", "jun"}, cars);
+        assertArrayEquals(new String[]{"pobi", "woni", "jun"}, result);
     }
 
     @DisplayName("자동차 이름 5자 이상 작성 시 예외 발생")
@@ -37,5 +40,19 @@ public class RacingCarTest {
 
         //when&then
         assertThrows(IllegalArgumentException.class, () -> racingCar.createCars(input));
+    }
+
+    @DisplayName("자동차 전진")
+    @Test
+    void 자동차_전진() {
+        //given
+        int position = 0;
+        int moveForward = MOVE_FORWARD;
+
+        //when
+        int result = racingCar.moveCar(position, moveForward);
+
+        //then
+        assertEquals(1, result);
     }
 }
