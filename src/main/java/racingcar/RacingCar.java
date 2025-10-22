@@ -24,11 +24,13 @@ public class RacingCar {
         }
     }
 
-    public int moveCar(int position, int randomNumber) {
-        if (randomNumber >= 4) {
-            return position + 1;
+    public void moveCar(int randomNumber) {
+        for(String car : carStates.keySet()) {
+            int position = carStates.get(car);
+            if (randomNumber >= 4) {
+                carStates.put(car, position + 1);
+            }
         }
-        return position;
     }
 
     public int startRace(String[] cars, int attemptCount) {
