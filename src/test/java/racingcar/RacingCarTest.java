@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class RacingCarTest {
 
-    private static int MOVE_FORWARD = 4;
+    private static final int MOVE_FORWARD = 4;
 
     private RacingCar racingCar;
 
@@ -68,5 +68,20 @@ public class RacingCarTest {
 
         //then
         assertEquals(1, result);
+    }
+
+    @DisplayName("주어진 횟수만큼 자동차 이동 반복")
+    @Test
+    void 주어진_횟수만큼_자동차_이동_반복() {
+        //given
+        String input = "pobi,woni,jun";
+        String[] cars = racingCar.createCars(input);
+        int attemptCount = 5;
+
+        //when
+        int result = racingCar.startRace(cars, attemptCount);
+
+        //then
+        assertEquals(attemptCount, result);
     }
 }
