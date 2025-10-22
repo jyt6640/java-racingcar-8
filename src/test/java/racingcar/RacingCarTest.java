@@ -89,7 +89,7 @@ public class RacingCarTest {
 
     @DisplayName("랜덤 값을 받아 4 이상이 나올 시 앞으로 전진")
     @Test
-    void 랜덤_값을_받아_4_이상이_나올_시_앞으로_전진 () {
+    void 랜덤_값을_받아_4_이상이_나올_시_앞으로_전진() {
         //given
         String[] cars =  racingCar.createCars("pobi,woni,jun");
         racingCar.initializeCars(cars);
@@ -99,5 +99,19 @@ public class RacingCarTest {
 
         //then
         assertEquals(1, racingCar.getPosition("pobi"));
+    }
+
+    @DisplayName("랜덤 값을 받아 3 이하가 나올 시 정지")
+    @Test
+    void 랜덤_값을_받아_3_이하가_나올_시_정지() {
+        //given
+        String[] cars = racingCar.createCars("pobi,woni,jun");
+        racingCar.initializeCars(cars);
+
+        //when
+        racingCar.moveCar(NOT_MOVE);
+
+        //then
+        assertEquals(0, racingCar.getPosition("pobi"));
     }
 }
