@@ -4,12 +4,12 @@ public class RacingCar {
     public String[] createCars(String input) {
         String[] cars = input.split(",");
         for (String car : cars) {
-            validateFiveMoreCharacters(car);
+            validateCarName(car);
         }
         return cars;
     }
 
-    private void validateFiveMoreCharacters(String car) {
+    private void validateCarName(String car) {
         if(car.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5글자를 초과할 수 없습니다.");
         }
