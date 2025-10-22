@@ -33,30 +33,6 @@ public class RacingCarTest {
         assertArrayEquals(new String[]{"pobi", "woni", "jun"}, result);
     }
 
-    @DisplayName("자동차 이름 5자 이상 작성 시 예외 발생")
-    @Test
-    void 자동차_이름_5자_이상_작성_시_예외_발생() {
-        //given
-        String input = "pobijjang,woni,jun";
-
-        //when&then
-        assertThatThrownBy(() -> racingCar.createCars(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 5글자를 초과할 수 없습니다.");
-    }
-
-    @DisplayName("자동차 이름 공백 입력 시 예외 발생")
-    @Test
-    void 자동차_이름_공백_입력_시_예외_발생 () {
-        //given
-        String input = "pobi,,jun";
-
-        //when&then
-        assertThatThrownBy(() -> racingCar.createCars(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 공백일 수 없습니다.");
-    }
-
     @DisplayName("주어진 횟수만큼 자동차 이동 반복")
     @Test
     void 주어진_횟수만큼_자동차_이동_반복() {
@@ -113,5 +89,41 @@ public class RacingCarTest {
 
         //then
         assertEquals(0, racingCar.getPosition("pobi"));
+    }
+
+    @DisplayName("자동차 이름 5자 이상 작성 시 예외 발생")
+    @Test
+    void 자동차_이름_5자_이상_작성_시_예외_발생() {
+        //given
+        String input = "pobijjang,woni,jun";
+
+        //when&then
+        assertThatThrownBy(() -> racingCar.createCars(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 5글자를 초과할 수 없습니다.");
+    }
+
+    @DisplayName("자동차 이름 공백 입력 시 예외 발생")
+    @Test
+    void 자동차_이름_공백_입력_시_예외_발생 () {
+        //given
+        String input = "pobi,,jun";
+
+        //when&then
+        assertThatThrownBy(() -> racingCar.createCars(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 공백일 수 없습니다.");
+    }
+
+    @DisplayName("주어진 횟수가 숫자가 아닐 경우 예외 발생")
+    @Test
+    void 주어진_횟수가_숫자가_아닐_경우_예외_발생() {
+        //given
+        String input = "five";
+
+        //when&then
+        assertThatThrownBy(() -> racingCar.validateAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("시도 횟수는 숫자여야 합니다.");
     }
 }
