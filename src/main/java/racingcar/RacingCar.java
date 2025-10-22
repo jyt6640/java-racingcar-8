@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.Random;
+
 public class RacingCar {
     public String[] createCars(String input) {
         String[] cars = input.split(",");
@@ -24,5 +26,13 @@ public class RacingCar {
             return position + 1;
         }
         return position;
+    }
+
+    public int startRace(String[] cars, int attemptCount) {
+        int round = 0;
+        for (int i = 0; i < attemptCount; i++) {
+            round++;
+        }
+        return round;
     }
 }
