@@ -2,7 +2,7 @@ package racingcar;
 
 public class RacingCar {
     public String[] createCars(String input) {
-        String cars[] = input.split(",");
+        String[] cars = input.split(",");
         for (String car : cars) {
             validateFiveMoreCharacters(car);
         }
