@@ -84,4 +84,19 @@ public class RacingCarTest {
         //then
         assertEquals(attemptCount, result);
     }
+
+    @DisplayName("자동차 이름을 기반으로 위치 저장")
+    @Test
+    void 자동차_이름을_기반으로_위치_저장() {
+        //given
+        String[] cars = racingCar.createCars("pobi,woni,jun");
+
+        //when
+        racingCar.initializeCars(cars);
+
+        //then
+        assertEquals(0, racingCar.getPosition("pobi"));
+        assertEquals(0, racingCar.getPosition("woni"));
+        assertEquals(0, racingCar.getPosition("jun"));
+    }
 }
