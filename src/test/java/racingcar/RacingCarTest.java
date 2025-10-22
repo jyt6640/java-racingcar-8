@@ -44,6 +44,18 @@ public class RacingCarTest {
                 .hasMessage("자동차 이름은 5글자를 초과할 수 없습니다.");
     }
 
+    @DisplayName("자동차 이름 공백 입력 시 예외 발생")
+    @Test
+    void 자동차_이름_공백_입력_시_예외_발생 () {
+        //given
+        String input = "pobi,,jun";
+
+        //when&then
+        assertThatThrownBy(() -> racingCar.createCars(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 공백일 수 없습니다.");
+    }
+
     @DisplayName("자동차 전진")
     @Test
     void 자동차_전진() {
