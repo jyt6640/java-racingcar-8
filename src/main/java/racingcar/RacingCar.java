@@ -14,4 +14,11 @@ public class RacingCar {
             throw new IllegalArgumentException("자동차 이름은 5글자를 초과할 수 없습니다.");
         }
     }
+
+    public int moveCar(int position, int randomNumber) {
+        if (randomNumber >= 4) {
+            return position + 1;
+        }
+        return position;
+    }
 }
