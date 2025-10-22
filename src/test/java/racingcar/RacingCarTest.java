@@ -1,8 +1,8 @@
 package racingcar;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -39,7 +39,9 @@ public class RacingCarTest {
         String input = "pobijjang,woni,jun";
 
         //when&then
-        assertThrows(IllegalArgumentException.class, () -> racingCar.createCars(input));
+        assertThatThrownBy(() -> racingCar.createCars(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 5글자를 초과할 수 없습니다.");
     }
 
     @DisplayName("자동차 전진")
