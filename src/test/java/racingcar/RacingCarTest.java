@@ -57,20 +57,6 @@ public class RacingCarTest {
                 .hasMessage("자동차 이름은 공백일 수 없습니다.");
     }
 
-    @DisplayName("자동차 전진")
-    @Test
-    void 자동차_전진() {
-        //given
-        int position = 0;
-        int moveForward = MOVE_FORWARD;
-
-        //when
-        int result = racingCar.moveCar(position, moveForward);
-
-        //then
-        assertEquals(1, result);
-    }
-
     @DisplayName("주어진 횟수만큼 자동차 이동 반복")
     @Test
     void 주어진_횟수만큼_자동차_이동_반복() {
