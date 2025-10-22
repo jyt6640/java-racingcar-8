@@ -1,8 +1,11 @@
 package racingcar;
 
-import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RacingCar {
+    private Map<String, Integer> carStates = new HashMap<>();
+
     public String[] createCars(String input) {
         String[] cars = input.split(",");
         for (String car : cars) {
@@ -34,5 +37,15 @@ public class RacingCar {
             round++;
         }
         return round;
+    }
+
+    public void initializeCars(String[] cars) {
+        for (String car : cars) {
+            carStates.put(car, 0);
+        }
+    }
+
+    public int getPosition(String car) {
+        return carStates.get(car);
     }
 }
