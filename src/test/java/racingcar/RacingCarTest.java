@@ -109,6 +109,25 @@ public class RacingCarTest {
         assertEquals("pobi", result);
     }
 
+    @DisplayName("우승자가 여러 명일 때 우승자 찾기")
+    @Test
+    void 우승자가_여러_명일_때_우승자_찾기() {
+        //given
+        String[] cars = racingCar.createCars("pobi,woni,jun");
+        racingCar.initializeCars(cars);
+        racingCar.moveCar("pobi", 5);
+        racingCar.moveCar("pobi", 5);
+        racingCar.moveCar("woni", 5);
+        racingCar.moveCar("woni", 5);
+        racingCar.moveCar("jun", 2);
+
+        //when
+        String result = racingCar.findWinners();
+
+        //then
+        assertEquals("pobi,woni", result);
+    }
+
     @DisplayName("자동차 이름 5자 이상 작성 시 예외 발생")
     @Test
     void 자동차_이름_5자_이상_작성_시_예외_발생() {
