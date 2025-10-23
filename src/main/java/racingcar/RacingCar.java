@@ -39,6 +39,20 @@ public class RacingCar {
         }
     }
 
+    public String findWinners() {
+        int maxPosition = carStates.values()
+                .stream()
+                .max(Integer::compareTo)
+                .orElse(0);
+
+        return carStates.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == maxPosition)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse("");
+    }
+
     public int getPosition(String car) {
         return carStates.get(car);
     }
