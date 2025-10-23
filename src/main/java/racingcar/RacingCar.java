@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class RacingCar {
     private Map<String, Integer> carStates = new HashMap<>();
@@ -49,8 +50,7 @@ public class RacingCar {
                 .stream()
                 .filter(entry -> entry.getValue() == maxPosition)
                 .map(Map.Entry::getKey)
-                .findFirst()
-                .orElse("");
+                .collect(Collectors.joining(","));
     }
 
     public int getPosition(String car) {
