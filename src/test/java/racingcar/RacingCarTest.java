@@ -128,6 +128,29 @@ public class RacingCarTest {
         assertEquals("pobi,woni", result);
     }
 
+    @DisplayName("라운드마다 자동차가 이동할 때마다 전진 결과 출력")
+    @Test
+    void 라운드마다_자동차가_이동할_때마다_전진_결과_출력() {
+        //given
+        String[] cars = racingCar.createCars("pobi,woni,jun");
+        racingCar.initializeCars(cars);
+
+        //when
+        racingCar.moveCar("pobi", 5);
+        racingCar.moveCar("woni", 3);
+        racingCar.moveCar("jun", 6);
+        String result1 = racingCar.printRoundResult();
+
+        racingCar.moveCar("pobi", 3);
+        racingCar.moveCar("woni", 5);
+        racingCar.moveCar("jun", 4);
+        String result2 = racingCar.printRoundResult();
+
+        //then
+        assertEquals("pobi : -\nwoni : \njun : -", result1);
+        assertEquals("pobi : -\nwoni : -\njun : --", result2);
+    }
+
     @DisplayName("자동차 이름 5자 이상 작성 시 예외 발생")
     @Test
     void 자동차_이름_5자_이상_작성_시_예외_발생() {
