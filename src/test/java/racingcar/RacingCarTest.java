@@ -7,12 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class RacingCarTest {
-
-    private static final int MOVE_FORWARD = 4;
-    private static final int NOT_MOVE = 3;
-
     private RacingCar racingCar;
 
     @BeforeEach
@@ -42,7 +40,7 @@ public class RacingCarTest {
         int attemptCount = 5;
 
         //when
-        int result = racingCar.startRace(cars, attemptCount);
+        int result = racingCar.startRace(attemptCount);
 
         //then
         assertEquals(attemptCount, result);
@@ -64,28 +62,30 @@ public class RacingCarTest {
     }
 
     @DisplayName("랜덤 값을 받아 4 이상이 나올 시 앞으로 전진")
-    @Test
-    void 랜덤_값을_받아_4_이상이_나올_시_앞으로_전진() {
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    @ParameterizedTest
+    void 랜덤_값을_받아_4_이상이_나올_시_앞으로_전진(int random) {
         //given
-        String[] cars =  racingCar.createCars("pobi,woni,jun");
+        String[] cars =  racingCar.createCars("pobi");
         racingCar.initializeCars(cars);
 
         //when
-        racingCar.moveCar(MOVE_FORWARD);
+        racingCar.moveCar("pobi", random);
 
         //then
         assertEquals(1, racingCar.getPosition("pobi"));
     }
 
     @DisplayName("랜덤 값을 받아 3 이하가 나올 시 정지")
-    @Test
-    void 랜덤_값을_받아_3_이하가_나올_시_정지() {
+    @ValueSource(ints = {1, 2, 3})
+    @ParameterizedTest
+    void 랜덤_값을_받아_3_이하가_나올_시_정지(int random) {
         //given
-        String[] cars = racingCar.createCars("pobi,woni,jun");
+        String[] cars = racingCar.createCars("pobi");
         racingCar.initializeCars(cars);
 
         //when
-        racingCar.moveCar(NOT_MOVE);
+        racingCar.moveCar("pobi", random);
 
         //then
         assertEquals(0, racingCar.getPosition("pobi"));
