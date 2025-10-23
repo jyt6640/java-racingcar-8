@@ -22,16 +22,14 @@ public class RacingCar {
         }
     }
 
-    public int startRace(int attemptCount) {
-        int round = 0;
+    public void startRace(int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
             for(String car : carStates.keySet()) {
                 int randomNumber = Randoms.pickNumberInRange(0,9);
                 moveCar(car, randomNumber);
             }
-            round++;
+            printRoundResult();
         }
-        return round;
     }
 
     public void initializeCars(String[] cars) {
