@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,18 +15,19 @@ public class RacingCar {
         return cars;
     }
 
-    public void moveCar(int randomNumber) {
-        for(String car : carStates.keySet()) {
-            int position = carStates.get(car);
-            if (randomNumber >= 4) {
-                carStates.put(car, position + 1);
-            }
+    public void moveCar(String car, int randomNumber) {
+        if (randomNumber >= 4) {
+            carStates.put(car, carStates.get(car) + 1);
         }
     }
 
-    public int startRace(String[] cars, int attemptCount) {
+    public int startRace(int attemptCount) {
         int round = 0;
         for (int i = 0; i < attemptCount; i++) {
+            for(String car : carStates.keySet()) {
+                int randomNumber = Randoms.pickNumberInRange(0,9);
+                moveCar(car, randomNumber);
+            }
             round++;
         }
         return round;
