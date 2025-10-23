@@ -124,12 +124,12 @@ public class RacingCarTest {
         racingCar.moveCar("pobi", 5);
         racingCar.moveCar("woni", 3);
         racingCar.moveCar("jun", 6);
-        String result1 = racingCar.printRoundResult();
+        String result1 = racingCar.RoundResult();
 
         racingCar.moveCar("pobi", 3);
         racingCar.moveCar("woni", 5);
         racingCar.moveCar("jun", 4);
-        String result2 = racingCar.printRoundResult();
+        String result2 = racingCar.RoundResult();
 
         //then
         assertEquals("pobi : -\nwoni : \njun : -", result1);
