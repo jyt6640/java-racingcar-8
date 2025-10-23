@@ -1,12 +1,12 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class RacingCar {
-    private Map<String, Integer> carStates = new HashMap<>();
+    private Map<String, Integer> carStates = new LinkedHashMap<>();
 
     public String[] createCars(String input) {
         String[] cars = input.split(",");
@@ -51,6 +51,19 @@ public class RacingCar {
                 .filter(entry -> entry.getValue() == maxPosition)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.joining(","));
+    }
+
+    public String printRoundResult() {
+        StringBuilder result = new StringBuilder();
+
+        for (String car : carStates.keySet()) {
+            String line = car + " : " + "-".repeat(carStates.get(car));
+            result.append(line).append("\n");
+            System.out.println(line);
+        }
+        System.out.println();
+
+        return result.toString().trim();
     }
 
     public int getPosition(String car) {
