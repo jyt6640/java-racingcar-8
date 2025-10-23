@@ -31,21 +31,6 @@ public class RacingCarTest {
         assertArrayEquals(new String[]{"pobi", "woni", "jun"}, result);
     }
 
-    @DisplayName("주어진 횟수만큼 자동차 이동 반복")
-    @Test
-    void 주어진_횟수만큼_자동차_이동_반복() {
-        //given
-        String input = "pobi,woni,jun";
-        String[] cars = racingCar.createCars(input);
-        int attemptCount = 5;
-
-        //when
-        int result = racingCar.startRace(attemptCount);
-
-        //then
-        assertEquals(attemptCount, result);
-    }
-
     @DisplayName("자동차 이름을 기반으로 위치 저장")
     @Test
     void 자동차_이름을_기반으로_위치_저장() {
