@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.OutputView.printRaceResult;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -28,7 +30,8 @@ public class RacingCar {
                 int randomNumber = Randoms.pickNumberInRange(0,9);
                 moveCar(car, randomNumber);
             }
-            printRoundResult();
+            String result = RoundResult();
+            printRaceResult(result);
         }
     }
 
@@ -51,17 +54,15 @@ public class RacingCar {
                 .collect(Collectors.joining(","));
     }
 
-    public String printRoundResult() {
+    public String RoundResult() {
         StringBuilder result = new StringBuilder();
 
         for (String car : carStates.keySet()) {
             String line = car + " : " + "-".repeat(carStates.get(car));
             result.append(line).append("\n");
-            System.out.println(line);
         }
-        System.out.println();
 
-        return result.toString().trim();
+        return result.toString();
     }
 
     public int getPosition(String car) {

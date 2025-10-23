@@ -14,12 +14,12 @@ public class Application {
             String attemptInput = InputView.readAttemptCount();
             int attemptCount = Integer.parseInt(attemptInput);
 
-            System.out.println("\n실행 결과");
+            OutputView.printRunResult();
             racingCar.startRace(attemptCount);
 
-            System.out.println("최종 우승자 : " + racingCar.findWinners());
+            OutputView.printWinners(racingCar.findWinners());
         } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR]" + e.getMessage());
+            OutputView.printError(e.getMessage());
             throw e;
         } finally {
             Console.close();
