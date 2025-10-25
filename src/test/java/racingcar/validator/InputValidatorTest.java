@@ -76,4 +76,16 @@ public class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 1회 이상이여야 합니다.");
     }
+
+    @DisplayName("주어진 횟수가 공백일 경우 예외 발생")
+    @Test
+    void 주어진_횟수가_공백일_경우_예외_발생() {
+        //given
+        String input = "";
+
+        //when&then
+        assertThatThrownBy(() -> inputValidator.validateAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("주어진 횟수가 공백일 수 없습니다.");
+    }
 }
