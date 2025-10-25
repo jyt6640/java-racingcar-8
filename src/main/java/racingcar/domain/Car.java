@@ -11,7 +11,7 @@ public class Car {
         this.position = 0;
     }
 
-    public void move(String carName, int randomNumber) {
+    public void move(int randomNumber) {
         if (randomNumber >= 4) {
             position++;
         }

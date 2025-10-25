@@ -1,33 +1,45 @@
 package racingcar.controller;
 
-import racingcar.RacingCar;
+import java.util.List;
+import racingcar.domain.Cars;
+import racingcar.parser.InputParser;
+import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
-    private final RacingCar racingCar;
+    private final InputParser inputParser;
+    private final RacingGameService gameService;
 
     public RacingGameController() {
-        this.racingCar = new RacingCar();
+        this.inputParser = new InputParser();
+        this.gameService = new RacingGameService();
     }
 
     public void run() {
         try {
             String carInput = InputView.readCar();
-            String[] cars = racingCar.createCars(carInput);
-            racingCar.initializeCars(cars);
-
+            List<String> carNames = inputParser.parseCars(carInput);
+            Cars cars = new Cars(carNames);
+            gameService.initializeCars(cars);
+            
             String attemptInput = InputView.readAttemptCount();
-            int attemptCount = Integer.parseInt(attemptInput);
-
+            int attemptCount = gameService.validateAttemptCount(attemptInput);
+            
             OutputView.printRunResult();
-            racingCar.startRace(attemptCount);
-
-            OutputView.printWinners(racingCar.findWinners());
+            playGame(attemptCount);
+            
+            OutputView.printWinners(gameService.findWinners());
         } catch (IllegalArgumentException e) {
             OutputView.printError(e.getMessage());
             throw e;
         }
+    }
 
+    private void playGame(int attemptCount) {
+        for (int i = 0; i < attemptCount; i++) {
+            gameService.playRound();
+            OutputView.printRaceResult(gameService.getRoundResult());
+        }
     }
 }
