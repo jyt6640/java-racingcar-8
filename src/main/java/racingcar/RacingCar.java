@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.View.OutputView.printRaceResult;
+import static racingcar.view.OutputView.printRaceResult;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
