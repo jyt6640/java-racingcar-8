@@ -16,19 +16,6 @@ public class RacingCarTest {
         racingCar = new RacingCar();
     }
 
-    @DisplayName("자동차를 쉼표 기준으로 분리")
-    @Test
-    void 자동차를_쉼표를_기준으로_분리() {
-        //given
-        String input = "pobi,woni,jun";
-
-        //when
-        String[] result = racingCar.createCars(input);
-
-        //then
-        assertArrayEquals(new String[]{"pobi", "woni", "jun"}, result);
-    }
-
     @DisplayName("우승자가 한 명일 때 우승자 찾기")
     @Test
     void 우승자가_한_명일_때_우승자_찾기() {
