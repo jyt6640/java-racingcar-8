@@ -30,8 +30,7 @@ public class RacingGameService {
     }
 
     public String findWinners() {
-        // TODO: Cars에 findWinners 메서드 추가 필요
-        return "";
+        return cars.findWinner();
     }
 
     public int validateAttemptCount(String input) {
