@@ -31,21 +31,6 @@ public class RacingCarTest {
         assertArrayEquals(new String[]{"pobi", "woni", "jun"}, result);
     }
 
-    @DisplayName("랜덤 값을 받아 3 이하가 나올 시 정지")
-    @ValueSource(ints = {1, 2, 3})
-    @ParameterizedTest
-    void 랜덤_값을_받아_3_이하가_나올_시_정지(int random) {
-        //given
-        String[] cars = racingCar.createCars("pobi");
-        racingCar.initializeCars(cars);
-
-        //when
-        racingCar.moveCar("pobi", random);
-
-        //then
-        assertEquals(0, racingCar.getPosition("pobi"));
-    }
-
     @DisplayName("우승자가 한 명일 때 우승자 찾기")
     @Test
     void 우승자가_한_명일_때_우승자_찾기() {

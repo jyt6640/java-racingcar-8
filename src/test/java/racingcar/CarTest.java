@@ -35,4 +35,18 @@ public class CarTest {
         //then
         assertEquals(1, car.getPosition());
     }
+
+    @DisplayName("랜덤 값을 받아 3 이하가 나올 시 정지")
+    @ValueSource(ints = {1, 2, 3})
+    @ParameterizedTest
+    void 랜덤_값을_받아_3_이하가_나올_시_정지(int randomNumber) {
+        //given
+        Car car = new Car("pobi");
+
+        //when
+        car.moveCar("pobi", randomNumber);
+
+        //then
+        assertEquals(0, car.getPosition());
+    }
 }
