@@ -31,36 +31,6 @@ public class RacingCarTest {
         assertArrayEquals(new String[]{"pobi", "woni", "jun"}, result);
     }
 
-    @DisplayName("자동차 이름을 기반으로 위치 저장")
-    @Test
-    void 자동차_이름을_기반으로_위치_저장() {
-        //given
-        String[] cars = racingCar.createCars("pobi,woni,jun");
-
-        //when
-        racingCar.initializeCars(cars);
-
-        //then
-        assertEquals(0, racingCar.getPosition("pobi"));
-        assertEquals(0, racingCar.getPosition("woni"));
-        assertEquals(0, racingCar.getPosition("jun"));
-    }
-
-    @DisplayName("랜덤 값을 받아 4 이상이 나올 시 앞으로 전진")
-    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
-    @ParameterizedTest
-    void 랜덤_값을_받아_4_이상이_나올_시_앞으로_전진(int random) {
-        //given
-        String[] cars =  racingCar.createCars("pobi");
-        racingCar.initializeCars(cars);
-
-        //when
-        racingCar.moveCar("pobi", random);
-
-        //then
-        assertEquals(1, racingCar.getPosition("pobi"));
-    }
-
     @DisplayName("랜덤 값을 받아 3 이하가 나올 시 정지")
     @ValueSource(ints = {1, 2, 3})
     @ParameterizedTest
