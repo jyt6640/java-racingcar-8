@@ -26,6 +26,19 @@ public class InputValidatorTest {
                 .hasMessage("자동차 이름은 공백일 수 없습니다.");
     }
 
+    @DisplayName("자동차가 2대 이상 없을 시 예외 발생")
+    @Test
+    void 자동차가_2대_이상_없을_시_예외_발생() {
+        //given
+        String input = "pobijjang";
+
+        //when&then
+        assertThatThrownBy(() -> inputValidator.validateMinimumCarCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차는 2대 이상이어야 합니다.");
+
+    }
+
     @DisplayName("주어진 횟수가 숫자가 아닐 경우 예외 발생")
     @Test
     void 주어진_횟수가_숫자가_아닐_경우_예외_발생() {
