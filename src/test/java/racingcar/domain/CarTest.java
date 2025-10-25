@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
@@ -30,7 +31,7 @@ public class CarTest {
         Car car = new Car("pobi");
 
         //when
-        car.moveCar("pobi", randomNumber);
+        car.move("pobi", randomNumber);
 
         //then
         assertEquals(1, car.getPosition());
@@ -44,9 +45,33 @@ public class CarTest {
         Car car = new Car("pobi");
 
         //when
-        car.moveCar("pobi", randomNumber);
+        car.move("pobi", randomNumber);
 
         //then
         assertEquals(0, car.getPosition());
+    }
+
+    @DisplayName("자동차 이름 5자 이상 작성 시 예외 발생")
+    @Test
+    void 자동차_이름_5자_이상_작성_시_예외_발생() {
+        //given
+        String input = "pobijjang";
+
+        //when&then
+        assertThatThrownBy(() -> new Car(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 5글자를 초과할 수 없습니다.");
+    }
+
+    @DisplayName("자동차 이름 공백 입력 시 예외 발생")
+    @Test
+    void 자동차_이름_공백_입력_시_예외_발생 () {
+        //given
+        String input = "";
+
+        //when&then
+        assertThatThrownBy(() -> new Car(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 공백일 수 없습니다.");
     }
 }
