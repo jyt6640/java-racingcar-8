@@ -1,12 +1,15 @@
 package racingcar.domain;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
     private List<Car> cars;
 
     public Cars(List<String> names) {
+        validateDuplicateName(names);
         this.cars = names.stream()
                 .map(Car::new)
                 .toList();
@@ -14,6 +17,15 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    private void validateDuplicateName(List<String> names) {
+        Set<String> uniqueNames = new HashSet<>(names);
+
+        if(uniqueNames.size() == names.size()) {
+            return;
+        }
+        throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
     }
 
     public String findWinner() {
