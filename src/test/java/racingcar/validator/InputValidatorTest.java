@@ -5,6 +5,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class InputValidatorTest {
     private InputValidator inputValidator;
@@ -36,7 +38,19 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> inputValidator.validateMinimumCarCount(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차는 2대 이상이어야 합니다.");
+    }
 
+    @DisplayName("자동차 이름 정규식 기반 입력 예외 발생")
+    @ValueSource(strings = {",pobi", ",",",,pobi"})
+    @ParameterizedTest
+    void 자동차_이름_정규식_기반_입력_예외_발생() {
+        //given
+        String input = ",pobi";
+
+        //when&then
+        assertThatThrownBy(() -> inputValidator.validateCarsNameFormat(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력 형식이 잘못되었습니다.");
     }
 
     @DisplayName("주어진 횟수가 숫자가 아닐 경우 예외 발생")
