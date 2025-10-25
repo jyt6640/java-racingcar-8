@@ -14,6 +14,18 @@ public class InputValidatorTest {
         inputValidator = new InputValidator();
     }
 
+    @DisplayName("자동차 이름이 공백일 경우 예외 발생")
+    @Test
+    void 자동차_이름이_공백일_경우_예외_발생() {
+        //given
+        String input = "";
+
+        //when&then
+        assertThatThrownBy(() -> inputValidator.validateCarsNameNotBlank(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 공백일 수 없습니다.");
+    }
+
     @DisplayName("주어진 횟수가 숫자가 아닐 경우 예외 발생")
     @Test
     void 주어진_횟수가_숫자가_아닐_경우_예외_발생() {
