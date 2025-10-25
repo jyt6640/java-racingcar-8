@@ -1,9 +1,15 @@
 package racingcar.validator;
 
 public class InputValidator {
-    public int validateAttemptCount(String input) {
+    public void validateCarsNameNotBlank(String Cars) {
+        if (Cars == null || Cars.isBlank()) {
+            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+        }
+    }
+
+    public int validateAttemptCount(String AttemptCount) {
         try {
-            int attemptCount = Integer.parseInt(input);
+            int attemptCount = Integer.parseInt(AttemptCount);
             validateAttemptCountRange(attemptCount);
             return attemptCount;
         } catch (NumberFormatException e) {
