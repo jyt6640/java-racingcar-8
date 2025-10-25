@@ -29,6 +29,7 @@ public class InputValidator {
 
     public int validateAttemptCount(String attemptCounts) {
         try {
+            validateAttemptNotBlank(attemptCounts);
             int attemptCount = Integer.parseInt(attemptCounts);
             validateAttemptCountRange(attemptCount);
             return attemptCount;
@@ -40,6 +41,12 @@ public class InputValidator {
     private void validateAttemptCountRange(int attemptCount) {
         if (attemptCount <= 0) {
             throw new IllegalArgumentException("시도 횟수는 1회 이상이여야 합니다.");
+        }
+    }
+
+    private void validateAttemptNotBlank(String attemptCounts) {
+        if (attemptCounts == null || attemptCounts.isBlank()) {
+            throw new IllegalArgumentException("주어진 횟수가 공백일 수 없습니다.");
         }
     }
 }
