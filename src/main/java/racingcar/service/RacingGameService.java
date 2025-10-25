@@ -32,17 +32,4 @@ public class RacingGameService {
     public String findWinners() {
         return cars.findWinner();
     }
-
-    public int validateAttemptCount(String input) {
-        try {
-            int attemptCount = Integer.parseInt(input);
-            if (attemptCount <= 0) {
-                throw new IllegalArgumentException("시도 횟수는 1회 이상이여야 합니다.");
-            }
-            return attemptCount;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
-        }
-
-    }
 }

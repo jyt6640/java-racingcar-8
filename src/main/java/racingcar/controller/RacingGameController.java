@@ -4,16 +4,19 @@ import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.parser.InputParser;
 import racingcar.service.RacingGameService;
+import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
     private final InputParser inputParser;
     private final RacingGameService gameService;
+    private final InputValidator inputValidator;
 
     public RacingGameController() {
         this.inputParser = new InputParser();
         this.gameService = new RacingGameService();
+        this.inputValidator = new InputValidator();
     }
 
     public void run() {
@@ -24,7 +27,7 @@ public class RacingGameController {
             gameService.initializeCars(cars);
             
             String attemptInput = InputView.readAttemptCount();
-            int attemptCount = gameService.validateAttemptCount(attemptInput);
+            int attemptCount = inputValidator.validateAttemptCount(attemptInput);
             
             OutputView.printRunResult();
             playGame(attemptCount);
