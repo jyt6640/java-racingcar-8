@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.View.InputView;
+import racingcar.View.OutputView;
 
 public class Application {
     public static void main(String[] args) {
