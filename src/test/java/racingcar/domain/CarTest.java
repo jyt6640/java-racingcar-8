@@ -31,7 +31,7 @@ public class CarTest {
         Car car = new Car("pobi");
 
         //when
-        car.move("pobi", randomNumber);
+        car.move(randomNumber);
 
         //then
         assertEquals(1, car.getPosition());
@@ -45,7 +45,7 @@ public class CarTest {
         Car car = new Car("pobi");
 
         //when
-        car.move("pobi", randomNumber);
+        car.move(randomNumber);
 
         //then
         assertEquals(0, car.getPosition());
