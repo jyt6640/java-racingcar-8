@@ -7,20 +7,26 @@ public class InputValidator {
     private static final Pattern CAR_NAME_INPUT_PATTERN = Pattern.compile("^[^,]+(,[^,]*)*$");
     private static final Pattern ONLY_NUMBER_INPUT_PATTERN = Pattern.compile("^\\d+$");
 
-    public void validateCarsNameNotBlank(String cars) {
+    public void validateCarsName(String input) {
+        validateCarsNameNotBlank(input);
+        validateCarsNameFormat(input);
+        validateMinimumCarCount(input);
+    }
+
+    private void validateCarsNameNotBlank(String cars) {
         if (cars == null || cars.isBlank()) {
             throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
         }
     }
 
-    public void validateMinimumCarCount(String cars) {
+    private void validateMinimumCarCount(String cars) {
         if (cars.contains(",")) {
             return;
         }
         throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
     }
 
-    public void validateCarsNameFormat(String cars) {
+    private void validateCarsNameFormat(String cars) {
         Matcher matcher = CAR_NAME_INPUT_PATTERN.matcher(cars);
         if(matcher.matches()) {
             return;

@@ -22,6 +22,7 @@ public class RacingGameController {
     public void run() {
         try {
             String carInput = InputView.readCar();
+            inputValidator.validateCarsName(carInput);
             List<String> carNames = inputParser.parseCars(carInput);
             Cars cars = new Cars(carNames);
             gameService.initializeCars(cars);
