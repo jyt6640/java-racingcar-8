@@ -7,17 +7,17 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private List<Car> cars;
+    private final List<Car> car;
 
     public Cars(List<String> names) {
         validateDuplicateName(names);
-        this.cars = names.stream()
+        this.car = names.stream()
                 .map(Car::new)
                 .toList();
     }
 
     public void moveAll() {
-        for (Car car : cars) {
+        for (Car car : car) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             car.move(randomNumber);
         }
@@ -25,7 +25,7 @@ public class Cars {
 
     public String roundResult() {
         StringBuilder result = new StringBuilder();
-        for (Car car : cars) {
+        for (Car car : car) {
             result.append(car.getName())
                     .append(" : ")
                     .append("-".repeat(car.getPosition()))
@@ -44,12 +44,12 @@ public class Cars {
     }
 
     public String findWinner() {
-        int maxPosition = cars.stream()
+        int maxPosition = car.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
 
-        return cars.stream()
+        return car.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));

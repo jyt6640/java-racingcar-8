@@ -60,7 +60,7 @@ public class InputValidatorTest {
         String input = "five";
 
         //when&then
-        assertThatThrownBy(() -> inputValidator.validateIsNumeric(input))
+        assertThatThrownBy(() -> inputValidator.validateAttemptCountFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 숫자여야 합니다.");
     }

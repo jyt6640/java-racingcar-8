@@ -33,7 +33,7 @@ public class Car {
         return carName;
     }
 
-    public int getPosition() {
+    int getPosition() {
         return position;
     }
 }

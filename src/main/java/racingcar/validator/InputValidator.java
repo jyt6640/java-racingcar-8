@@ -39,7 +39,7 @@ public class InputValidator {
         validateIsNumeric(input);
     }
 
-    public void validateIsNumeric(String input) {
+    private void validateIsNumeric(String input) {
         Matcher matcher = ONLY_NUMBER_INPUT_PATTERN.matcher(input);
         if(matcher.matches()) {
             return;
