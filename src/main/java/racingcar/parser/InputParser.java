@@ -8,7 +8,7 @@ import java.util.List;
 
 public class InputParser {
     public List<String> parseCars(String input) {
-        return Arrays.stream(input.split(COMMA))
+        return Arrays.stream(input.split(COMMA, -1))
                 .map(String::strip)
                 .toList();
     }
