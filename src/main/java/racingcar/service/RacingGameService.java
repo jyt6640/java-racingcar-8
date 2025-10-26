@@ -16,14 +16,7 @@ public class RacingGameService {
     }
 
     public String getRoundResult() {
-        StringBuilder result = new StringBuilder();
-        for (Car car : cars.getCars()) {
-            result.append(car.getName())
-                    .append(" : ")
-                    .append("-".repeat(car.getPosition()))
-                    .append("\n");
-        }
-        return result.toString();
+        return cars.roundResult();
     }
 
     public String findWinners() {
