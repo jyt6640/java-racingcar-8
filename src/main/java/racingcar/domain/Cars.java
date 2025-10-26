@@ -3,8 +3,8 @@ package racingcar.domain;
 import static racingcar.constants.Constants.COMMA_WITH_SPACE;
 import static racingcar.constants.Constants.HYPHEN;
 import static racingcar.constants.Constants.LINE_SEPARATOR;
+import static racingcar.constants.Constants.MAX_RANDOM_RANGE;
 import static racingcar.constants.Constants.MIN_RANDOM_RANGE;
-import static racingcar.constants.Constants.RANDOM_MAX_RANGE;
 import static racingcar.constants.Constants.RESULT_SEPARATOR;
 import static racingcar.constants.Constants.ZERO;
 import static racingcar.constants.ErrorMessage.DUPLICATE_CAR_NAME;
@@ -27,7 +27,7 @@ public class Cars {
 
     public void moveAll() {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_RANGE, RANDOM_MAX_RANGE);
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE);
             car.move(randomNumber);
         }
     }
