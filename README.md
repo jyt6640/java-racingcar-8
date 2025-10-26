@@ -74,16 +74,16 @@ jun : -----
 ## 🎯 상세 기능 구현 목록
 ***
 ### ⌨️ 입력
-- [ ] 사용자로부터 경주할 자동차 이름 입력 받기
+- [X] 사용자로부터 경주할 자동차 이름 입력 받기
     - [X] 자동차 이름 입력 안내 메시지 출력
     - [X] 사용자 입력 받기
     - [ ] 입력값 앞뒤 공백 제거
   
 
-- [ ] 사용자로부터 시도할 횟수 입력 받기
+- [X] 사용자로부터 시도할 횟수 입력 받기
     - [X] 시도 횟수 입력 안내 메시지 출력
     - [X] 사용자 입력 받기
-    - [ ] 입력값 앞뒤 공백 제거
+    - [X] 입력값 앞뒤 공백 제거
 
 ### ⚙️ 로직
 
@@ -101,7 +101,7 @@ jun : -----
 #### 추출
 ##### 자동차 이름 추출
 - [X] 쉼표(,)를 기준으로 자동차 이름 분리
-- [ ] 분리된 각 이름의 앞뒤 공백 제거
+- [X] 분리된 각 이름의 앞뒤 공백 제거
 - [X] List<String> 형태로 반환
 
 
@@ -109,10 +109,10 @@ jun : -----
 ##### 자동차(Car) 객체 생성
 - [X] 자동차 이름이 비었는지 확인
 - [X] 자동차 이름이 5자 초과인지 확인
-- [ ] 검증 통과 시 자동차 이름과 초기 위치를 필드로 저장
+- [X] 검증 통과 시 자동차 이름과 초기 위치를 필드로 저장
 
 ##### 일급 컬렉션(Cars) 생성
-- [ ] 자동차 이름 중복 검사 수행
+- [X] 자동차 이름 중복 검사 수행
 - [X] Car 객체들을 List으로 관리하는 Cars 일급 컬렉션 생성
  
 
@@ -146,23 +146,22 @@ jun : -----
 ### ⚠️ 예외 처리
 ##### 입력 검증 단계
 ###### 공통
-- [ ] 입력값이 null이거나 빈 문자열일 때 IllegalArgumentException 발생
+- [X] 입력값이 null이거나 빈 문자열일 때 IllegalArgumentException 발생
 
 ###### 자동차 이름
-- [ ] 구분자로 추출 가능한 형식이 아닐 때 IllegalArgumentException 발생
-- [ ] (,)외의 다른 특수문자가 들어가있을 경우 IllegalArgumentException 발생
+- [X] 구분자로 추출 가능한 형식이 아닐 때 IllegalArgumentException 발생
 
 ###### 시도 횟수
-- [ ] 시도 횟수가 숫자가 아닐 때 IllegalArgumentException 발생
-- [ ] 시도 횟수가 1 미만일 때 IllegalArgumentException 발생
+- [X] 시도 횟수가 숫자가 아닐 때 IllegalArgumentException 발생
+- [X] 시도 횟수가 1 미만일 때 IllegalArgumentException 발생
 
 ##### 도메인 검증 단계 (Car)
-- [ ] 자동차 이름이 빈 값일 때 IllegalArgumentException 발생
-- [ ] 자동차 이름이 공백만 있을 때 IllegalArgumentException 발생
-- [ ] 자동차 이름이 5자 초과일 때 IllegalArgumentException 발생
+- [X] 자동차 이름이 빈 값일 때 IllegalArgumentException 발생
+- [X] 자동차 이름이 공백만 있을 때 IllegalArgumentException 발생
+- [X] 자동차 이름이 5자 초과일 때 IllegalArgumentException 발생
 
 ##### 컬렉션 검증 단계 (Cars)
-- [ ] 자동차 이름이 중복될 때 IllegalArgumentException 발생
+- [X] 자동차 이름이 중복될 때 IllegalArgumentException 발생
 
 ---
 
@@ -204,7 +203,7 @@ jun : -----
 - [ ] `assertThatThrownBy`와 `assertThrows` 일관되게 사용
 
 ### 네이밍 & 가독성
-- [ ] 부정 조건문(`if (!condition)`) 대신 긍정 조건문 지양
+- [ ] 부정 조건문 대신 긍정 조건문 지양
 - [ ] 메서드명으로 의도를 명확히 표현
 
 ### 자료구조 일관성

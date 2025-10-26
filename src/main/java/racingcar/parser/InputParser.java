@@ -1,11 +1,12 @@
 package racingcar.parser;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class InputParser {
     public List<String> parseCars(String input) {
-        List<String> cars = List.of(input.split(","));
-        return cars;
+        return Arrays.stream(input.split(","))
+                .map(String::strip)
+                .toList();
     }
-
 }
