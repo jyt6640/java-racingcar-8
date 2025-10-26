@@ -1,5 +1,13 @@
 package racingcar.domain;
 
+import static racingcar.constants.Constants.COMMA_WITH_SPACE;
+import static racingcar.constants.Constants.HYPHEN;
+import static racingcar.constants.Constants.LINE_SEPARATOR;
+import static racingcar.constants.Constants.MIN_RANDOM_RANGE;
+import static racingcar.constants.Constants.RANDOM_MAX_RANGE;
+import static racingcar.constants.Constants.RESULT_SEPARATOR;
+import static racingcar.constants.Constants.ZERO;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
 import java.util.List;
@@ -18,7 +26,7 @@ public class Cars {
 
     public void moveAll() {
         for (Car car : car) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_RANGE, RANDOM_MAX_RANGE);
             car.move(randomNumber);
         }
     }
@@ -27,9 +35,9 @@ public class Cars {
         StringBuilder result = new StringBuilder();
         for (Car car : car) {
             result.append(car.getName())
-                    .append(" : ")
-                    .append("-".repeat(car.getPosition()))
-                    .append("\n");
+                    .append(RESULT_SEPARATOR)
+                    .append(HYPHEN.repeat(car.getPosition()))
+                    .append(LINE_SEPARATOR);
         }
         return result.toString();
     }
@@ -47,11 +55,11 @@ public class Cars {
         int maxPosition = car.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElse(0);
+                .orElse(ZERO);
 
         return car.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(COMMA_WITH_SPACE));
     }
 }

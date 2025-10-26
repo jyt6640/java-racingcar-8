@@ -1,11 +1,13 @@
 package racingcar.parser;
 
+import static racingcar.constants.Constants.COMMA;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class InputParser {
     public List<String> parseCars(String input) {
-        return Arrays.stream(input.split(","))
+        return Arrays.stream(input.split(COMMA))
                 .map(String::strip)
                 .toList();
     }

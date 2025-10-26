@@ -1,11 +1,16 @@
 package racingcar.validator;
 
+import static racingcar.constants.Constants.CAR_NAME_INPUT_REGEX;
+import static racingcar.constants.Constants.COMMA;
+import static racingcar.constants.Constants.ONLY_NUMBER_REGEX;
+import static racingcar.constants.Constants.ZERO;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputValidator {
-    private static final Pattern CAR_NAME_INPUT_PATTERN = Pattern.compile("^[^,]+(,[^,]*)*$");
-    private static final Pattern ONLY_NUMBER_INPUT_PATTERN = Pattern.compile("^\\d+$");
+    private static final Pattern CAR_NAME_INPUT_PATTERN = Pattern.compile(CAR_NAME_INPUT_REGEX);
+    private static final Pattern ONLY_NUMBER_INPUT_PATTERN = Pattern.compile(ONLY_NUMBER_REGEX);
 
     public void validateCarsName(String input) {
         validateCarsNameNotBlank(input);
@@ -20,7 +25,7 @@ public class InputValidator {
     }
 
     private void validateMinimumCarCount(String cars) {
-        if (cars.contains(",")) {
+        if (cars.contains(COMMA)) {
             return;
         }
         throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
@@ -54,7 +59,7 @@ public class InputValidator {
     }
 
     public void validateAttemptCountRange(int attemptCount) {
-        if (attemptCount <= 0) {
+        if (attemptCount <= ZERO) {
             throw new IllegalArgumentException("시도 횟수는 1회 이상이여야 합니다.");
         }
     }

@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.constants.Constants.ZERO;
+
 import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.parser.InputParser;
@@ -43,7 +45,7 @@ public class RacingGameController {
     }
 
     private void playGame(int attemptCount) {
-        for (int i = 0; i < attemptCount; i++) {
+        for (int i = ZERO; i < attemptCount; i++) {
             gameService.playRound();
             OutputView.printRaceResult(gameService.getRoundResult());
         }
