@@ -11,6 +11,10 @@ public class InputParser {
     }
 
     public int parseAttemptCount(String input) {
-        return Integer.parseInt(input);
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 int 범위를 넘어갈 수 없습니다.");
+        }
     }
 }
