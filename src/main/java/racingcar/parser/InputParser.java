@@ -1,6 +1,7 @@
 package racingcar.parser;
 
 import static racingcar.constants.Constants.COMMA;
+import static racingcar.constants.ErrorMessage.INVALID_ATTEMPT_INT_RANGE;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +17,7 @@ public class InputParser {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 int 범위를 넘어갈 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_ATTEMPT_INT_RANGE.getMessage());
         }
     }
 }

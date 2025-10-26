@@ -1,6 +1,11 @@
 package racingcar.validator;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static racingcar.constants.ErrorMessage.INVALID_ATTEMPT_NOT_NUMBER;
+import static racingcar.constants.ErrorMessage.INVALID_ATTEMPT_RANGE;
+import static racingcar.constants.ErrorMessage.INVALID_CAR_COUNT;
+import static racingcar.constants.ErrorMessage.INVALID_CAR_INPUT_FORMAT;
+import static racingcar.constants.ErrorMessage.INVALID_INPUT_NOT_BLANK;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +30,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("입력값은 공백일 수 없습니다.");
+                .hasMessage(INVALID_INPUT_NOT_BLANK.getMessage());
     }
 
     @DisplayName("자동차가 2대 이상 없을 시 예외 발생")
@@ -37,7 +42,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차는 2대 이상이어야 합니다.");
+                .hasMessage(INVALID_CAR_COUNT.getMessage());
     }
 
     @DisplayName("자동차 이름 정규식 기반 입력 예외 발생")
@@ -50,7 +55,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("입력 형식이 잘못되었습니다.");
+                .hasMessage(INVALID_CAR_INPUT_FORMAT.getMessage());
     }
 
     @DisplayName("주어진 횟수가 숫자가 아닐 경우 예외 발생")
@@ -62,7 +67,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateAttemptCountFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도 횟수는 숫자여야 합니다.");
+                .hasMessage(INVALID_ATTEMPT_NOT_NUMBER.getMessage());
     }
 
     @DisplayName("주어진 횟수가 0 이하일 경우 예외 발생")
@@ -74,7 +79,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateAttemptCountRange(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도 횟수는 1회 이상이여야 합니다.");
+                .hasMessage(INVALID_ATTEMPT_RANGE.getMessage());
     }
 
     @DisplayName("주어진 횟수가 공백일 경우 예외 발생")
@@ -86,6 +91,6 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateAttemptCountFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("입력값은 공백일 수 없습니다.");
+                .hasMessage(INVALID_INPUT_NOT_BLANK.getMessage());
     }
 }

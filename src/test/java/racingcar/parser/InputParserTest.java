@@ -2,6 +2,7 @@ package racingcar.parser;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static racingcar.constants.ErrorMessage.INVALID_ATTEMPT_INT_RANGE;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -51,6 +52,6 @@ public class InputParserTest {
         //when&then
         assertThatThrownBy(() -> inputParser.parseAttemptCount(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도 횟수는 int 범위를 넘어갈 수 없습니다.");
+                .hasMessage(INVALID_ATTEMPT_INT_RANGE.getMessage());
     }
 }

@@ -3,6 +3,8 @@ package racingcar.domain;
 import static racingcar.constants.Constants.CAR_NAME_MAX_LENGTH;
 import static racingcar.constants.Constants.INITIAL_POSITION;
 import static racingcar.constants.Constants.MOVING_FORWARD;
+import static racingcar.constants.ErrorMessage.INVALID_CAR_NAME_LENGTH;
+import static racingcar.constants.ErrorMessage.INVALID_CAR_NAME_NOT_BLANK;
 
 public class Car {
     private final String carName;
@@ -23,13 +25,13 @@ public class Car {
 
     private void validateCarNameLength(String carName) {
         if(carName.length() > CAR_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5글자를 초과할 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH.getMessage());
         }
     }
 
     private void validateNameNotBlank(String carName) {
         if(carName.isBlank()) {
-            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_CAR_NAME_NOT_BLANK.getMessage());
         }
     }
 

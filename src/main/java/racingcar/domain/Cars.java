@@ -7,6 +7,7 @@ import static racingcar.constants.Constants.MIN_RANDOM_RANGE;
 import static racingcar.constants.Constants.RANDOM_MAX_RANGE;
 import static racingcar.constants.Constants.RESULT_SEPARATOR;
 import static racingcar.constants.Constants.ZERO;
+import static racingcar.constants.ErrorMessage.DUPLICATE_CAR_NAME;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
@@ -48,7 +49,7 @@ public class Cars {
         if(uniqueNames.size() == names.size()) {
             return;
         }
-        throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+        throw new IllegalArgumentException(DUPLICATE_CAR_NAME.getMessage());
     }
 
     public String findWinner() {

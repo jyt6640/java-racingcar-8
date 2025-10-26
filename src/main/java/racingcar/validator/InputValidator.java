@@ -4,6 +4,11 @@ import static racingcar.constants.Constants.CAR_NAME_INPUT_REGEX;
 import static racingcar.constants.Constants.COMMA;
 import static racingcar.constants.Constants.ONLY_NUMBER_REGEX;
 import static racingcar.constants.Constants.ZERO;
+import static racingcar.constants.ErrorMessage.INVALID_ATTEMPT_NOT_NUMBER;
+import static racingcar.constants.ErrorMessage.INVALID_ATTEMPT_RANGE;
+import static racingcar.constants.ErrorMessage.INVALID_CAR_COUNT;
+import static racingcar.constants.ErrorMessage.INVALID_CAR_INPUT_FORMAT;
+import static racingcar.constants.ErrorMessage.INVALID_INPUT_NOT_BLANK;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,7 +30,7 @@ public class InputValidator {
 
     private void validateNotBlank(String cars) {
         if (cars == null || cars.isBlank()) {
-            throw new IllegalArgumentException("입력값은 공백일 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_INPUT_NOT_BLANK.getMessage());
         }
     }
 
@@ -33,7 +38,7 @@ public class InputValidator {
         if (cars.contains(COMMA)) {
             return;
         }
-        throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
+        throw new IllegalArgumentException(INVALID_CAR_COUNT.getMessage());
     }
 
     private void validateCarsNameFormat(String cars) {
@@ -41,7 +46,7 @@ public class InputValidator {
         if(matcher.matches()) {
             return;
         }
-        throw new IllegalArgumentException("입력 형식이 잘못되었습니다.");
+        throw new IllegalArgumentException(INVALID_CAR_INPUT_FORMAT.getMessage());
     }
 
     private void validateIsNumeric(String input) {
@@ -49,12 +54,12 @@ public class InputValidator {
         if(matcher.matches()) {
             return;
         }
-        throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        throw new IllegalArgumentException(INVALID_ATTEMPT_NOT_NUMBER.getMessage());
     }
 
     public void validateAttemptCountRange(int attemptCount) {
         if (attemptCount <= ZERO) {
-            throw new IllegalArgumentException("시도 횟수는 1회 이상이여야 합니다.");
+            throw new IllegalArgumentException(INVALID_ATTEMPT_RANGE.getMessage());
         }
     }
 }
