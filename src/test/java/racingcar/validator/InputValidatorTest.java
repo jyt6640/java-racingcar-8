@@ -23,7 +23,7 @@ public class InputValidatorTest {
         String input = "";
 
         //when&then
-        assertThatThrownBy(() -> inputValidator.validateCarsNameNotBlank(input))
+        assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 공백일 수 없습니다.");
     }
@@ -35,7 +35,7 @@ public class InputValidatorTest {
         String input = "pobijjang";
 
         //when&then
-        assertThatThrownBy(() -> inputValidator.validateMinimumCarCount(input))
+        assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차는 2대 이상이어야 합니다.");
     }
@@ -48,7 +48,7 @@ public class InputValidatorTest {
         String input = ",pobi";
 
         //when&then
-        assertThatThrownBy(() -> inputValidator.validateCarsNameFormat(input))
+        assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력 형식이 잘못되었습니다.");
     }
@@ -69,10 +69,10 @@ public class InputValidatorTest {
     @Test
     void 주어진_횟수가_0_이하일_경우_예외_발생() {
         //given
-        String input = "0";
+        int input = 0;
 
         //when&then
-        assertThatThrownBy(() -> inputValidator.validateAttemptCount(input))
+        assertThatThrownBy(() -> inputValidator.validateAttemptCountRange(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 1회 이상이여야 합니다.");
     }
@@ -84,7 +84,7 @@ public class InputValidatorTest {
         String input = "";
 
         //when&then
-        assertThatThrownBy(() -> inputValidator.validateAttemptCount(input))
+        assertThatThrownBy(() -> inputValidator.validateAttemptCountFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("주어진 횟수가 공백일 수 없습니다.");
     }
