@@ -12,8 +12,8 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public static void printWinners(String Winners) {
-        System.out.println("최종 우승자 : " + Winners);
+    public static void printWinners(String winners) {
+        System.out.println("최종 우승자 : " + winners);
     }
 
     public static void printError(String message) {
