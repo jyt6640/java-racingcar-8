@@ -1,8 +1,6 @@
 package racingcar.constants;
 
 public class Constants {
-    private Constants() {
-    }
     public static final int ZERO = 0;
     public static final int INITIAL_POSITION = 0;
     public static final int MOVING_FORWARD = 4;
@@ -17,4 +15,7 @@ public class Constants {
     public static final String HYPHEN = "-";
     public static final String LINE_SEPARATOR = "\n";
     public static final String RESULT_SEPARATOR = " : ";
+
+    private Constants() {
+    }
 }

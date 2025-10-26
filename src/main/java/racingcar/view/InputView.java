@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import static racingcar.constants.MessageConstants.ATTEMPT_COUNT_INPUT_MESSAGE;
+import static racingcar.constants.MessageConstants.CAR_NAME_INPUT_MESSAGE;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
@@ -7,12 +10,12 @@ public class InputView {
     }
 
     public static String readCar() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CAR_NAME_INPUT_MESSAGE);
         return Console.readLine();
     }
 
     public static String readAttemptCount() {
-        System.out.println("시도할 횟수는 몇 회인가요?");
+        System.out.println(ATTEMPT_COUNT_INPUT_MESSAGE);
         return Console.readLine();
     }
 }
