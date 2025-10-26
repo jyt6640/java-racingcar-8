@@ -39,7 +39,7 @@ public class RacingGameController {
             
             OutputView.printWinners(gameService.findWinners());
         } catch (IllegalArgumentException e) {
-            OutputView.printError(e.getMessage());
+            OutputView.printError(e);
             throw e;
         }
     }
