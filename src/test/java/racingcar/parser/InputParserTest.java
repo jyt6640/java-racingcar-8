@@ -30,6 +30,19 @@ public class InputParserTest {
         assertEquals(List.of("pobi","woni","jun"), result);
     }
 
+    @DisplayName("자동차 이름 앞뒤 공백 제거")
+    @Test
+    void 자동차_이름_앞뒤_공백_제거() {
+        //given
+        String input = " pobi , woni, jun ";
+
+        //when
+        List<String> result = inputParser.parseCars(input);
+
+        //then
+        assertEquals(List.of("pobi","woni","jun"), result);
+    }
+
     @DisplayName("시도 횟수 문자열에서 int로 변환")
     @Test
     void 시도_횟수_문자열에서_int로_변환() {
