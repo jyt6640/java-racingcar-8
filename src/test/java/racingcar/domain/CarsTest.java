@@ -1,11 +1,12 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 
 public class CarsTest {
     @DisplayName("이름 리스트로 Cars 생성")
@@ -14,14 +15,23 @@ public class CarsTest {
         //given
         List<String> input = List.of("pobi", "woni", "jun");
 
+        //when&then
+        new Cars(input);
+    }
+
+    @DisplayName("라운드 결과 문자열 형식 확인")
+    @Test
+    void 라운드_결과_문자열_형식_확인() {
+        //given
+        Cars cars = new Cars(List.of("pobi", "woni"));
+
         //when
-        Cars cars = new Cars(input);
+        String result = cars.roundResult();
 
         //then
-        assertEquals(3, cars.getCars().size());
-        assertEquals("pobi", cars.getCars().get(0).getName());
-        assertEquals("woni", cars.getCars().get(1).getName());
-        assertEquals("jun", cars.getCars().get(2).getName());
+        assertThat(result).contains("pobi : ");
+        assertThat(result).contains("woni : ");
+        assertThat(result).contains("\n");
     }
 
     @DisplayName("동일한 자동차 이름일 때 예외 발생")
