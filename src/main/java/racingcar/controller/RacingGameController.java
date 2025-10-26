@@ -27,6 +27,7 @@ public class RacingGameController {
             gameService.initializeCars(cars);
             
             String attemptInput = InputView.readAttemptCount();
+            inputValidator.validateIsNumeric(attemptInput);
             int attemptCount = inputValidator.validateAttemptCount(attemptInput);
             
             OutputView.printRunResult();

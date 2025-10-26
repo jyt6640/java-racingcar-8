@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class InputValidator {
     private static final Pattern CAR_NAME_INPUT_PATTERN = Pattern.compile("^[^,]+(,[^,]*)*$");
+    private static final Pattern ONLY_NUMBER_INPUT_PATTERN = Pattern.compile("^\\d+$");
 
     public void validateCarsNameNotBlank(String cars) {
         if (cars == null || cars.isBlank()) {
@@ -28,14 +29,18 @@ public class InputValidator {
     }
 
     public int validateAttemptCount(String attemptCounts) {
-        try {
-            validateAttemptNotBlank(attemptCounts);
-            int attemptCount = Integer.parseInt(attemptCounts);
-            validateAttemptCountRange(attemptCount);
-            return attemptCount;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        validateAttemptNotBlank(attemptCounts);
+        int attemptCount = Integer.parseInt(attemptCounts);
+        validateAttemptCountRange(attemptCount);
+        return attemptCount;
+    }
+
+    public void validateIsNumeric(String input) {
+        Matcher matcher = ONLY_NUMBER_INPUT_PATTERN.matcher(input);
+        if(matcher.matches()) {
+            return;
         }
+        throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
     }
 
     private void validateAttemptCountRange(int attemptCount) {
