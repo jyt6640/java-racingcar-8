@@ -16,17 +16,17 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private final List<Car> car;
+    private final List<Car> cars;
 
     public Cars(List<String> names) {
         validateDuplicateName(names);
-        this.car = names.stream()
+        this.cars = names.stream()
                 .map(Car::new)
                 .toList();
     }
 
     public void moveAll() {
-        for (Car car : car) {
+        for (Car car : cars) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_RANGE, RANDOM_MAX_RANGE);
             car.move(randomNumber);
         }
@@ -34,7 +34,7 @@ public class Cars {
 
     public String roundResult() {
         StringBuilder result = new StringBuilder();
-        for (Car car : car) {
+        for (Car car : cars) {
             result.append(car.getName())
                     .append(RESULT_SEPARATOR)
                     .append(HYPHEN.repeat(car.getPosition()))
@@ -53,12 +53,12 @@ public class Cars {
     }
 
     public String findWinner() {
-        int maxPosition = car.stream()
+        int maxPosition = cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(ZERO);
 
-        return car.stream()
+        return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .collect(Collectors.joining(COMMA_WITH_SPACE));
