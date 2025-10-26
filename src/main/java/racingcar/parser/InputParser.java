@@ -14,6 +14,7 @@ public class InputParser {
     }
 
     public int parseAttemptCount(String input) {
+        input = input.strip();
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
