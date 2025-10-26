@@ -25,7 +25,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 공백일 수 없습니다.");
+                .hasMessage("입력값은 공백일 수 없습니다.");
     }
 
     @DisplayName("자동차가 2대 이상 없을 시 예외 발생")
@@ -86,6 +86,6 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateAttemptCountFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("주어진 횟수가 공백일 수 없습니다.");
+                .hasMessage("입력값은 공백일 수 없습니다.");
     }
 }

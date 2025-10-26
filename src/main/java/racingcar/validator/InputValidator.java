@@ -13,14 +13,19 @@ public class InputValidator {
     private static final Pattern ONLY_NUMBER_INPUT_PATTERN = Pattern.compile(ONLY_NUMBER_REGEX);
 
     public void validateCarsName(String input) {
-        validateCarsNameNotBlank(input);
+        validateNotBlank(input);
         validateCarsNameFormat(input);
         validateMinimumCarCount(input);
     }
 
-    private void validateCarsNameNotBlank(String cars) {
+    public void validateAttemptCountFormat(String input) {
+        validateNotBlank(input);
+        validateIsNumeric(input);
+    }
+
+    private void validateNotBlank(String cars) {
         if (cars == null || cars.isBlank()) {
-            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+            throw new IllegalArgumentException("입력값은 공백일 수 없습니다.");
         }
     }
 
@@ -39,23 +44,12 @@ public class InputValidator {
         throw new IllegalArgumentException("입력 형식이 잘못되었습니다.");
     }
 
-    public void validateAttemptCountFormat(String input) {
-        validateAttemptNotBlank(input);
-        validateIsNumeric(input);
-    }
-
     private void validateIsNumeric(String input) {
         Matcher matcher = ONLY_NUMBER_INPUT_PATTERN.matcher(input);
         if(matcher.matches()) {
             return;
         }
         throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
-    }
-
-    private void validateAttemptNotBlank(String attemptCounts) {
-        if (attemptCounts == null || attemptCounts.isBlank()) {
-            throw new IllegalArgumentException("주어진 횟수가 공백일 수 없습니다.");
-        }
     }
 
     public void validateAttemptCountRange(int attemptCount) {
