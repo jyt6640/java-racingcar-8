@@ -34,6 +34,20 @@ public class CarsTest {
         assertThat(result).contains("\n");
     }
 
+    @DisplayName("최종 우승자가 존재하는지 확인")
+    @Test
+    void 최종_우승자_결과_문자열_형식_확인() {
+        //given
+        Cars cars = new Cars(List.of("pobi", "woni"));
+
+        //when
+        cars.moveAll();
+        String result = cars.findWinner();
+
+        //then
+        assertThat(result).isNotBlank();
+    }
+
     @DisplayName("동일한 자동차 이름일 때 예외 발생")
     @Test
     void 동일한_자동차_이름일_때_예외_발생() {
