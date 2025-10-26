@@ -62,7 +62,7 @@ public class CarTest {
         //when&then
         assertThatThrownBy(() -> new Car(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_CAR_NAME_LENGTH.getMessage());
+                .hasMessage(INVALID_CAR_NAME_LENGTH.toString());
     }
 
     @DisplayName("자동차 이름 공백 입력 시 예외 발생")
@@ -74,6 +74,6 @@ public class CarTest {
         //when&then
         assertThatThrownBy(() -> new Car(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_CAR_NAME_NOT_BLANK.getMessage());
+                .hasMessage(INVALID_CAR_NAME_NOT_BLANK.toString());
     }
 }

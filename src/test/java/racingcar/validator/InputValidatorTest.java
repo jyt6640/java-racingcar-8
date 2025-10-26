@@ -28,7 +28,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_INPUT_NOT_BLANK.getMessage());
+                .hasMessage(INVALID_INPUT_NOT_BLANK.toString());
     }
 
     @DisplayName("자동차가 2대 이상 없을 시 예외 발생")
@@ -40,7 +40,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_CAR_COUNT.getMessage());
+                .hasMessage(INVALID_CAR_COUNT.toString());
     }
 
     @DisplayName("자동차 이름 정규식 기반 입력 예외 발생")
@@ -53,7 +53,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_CAR_INPUT_FORMAT.getMessage());
+                .hasMessage(INVALID_CAR_INPUT_FORMAT.toString());
     }
 
     @DisplayName("주어진 횟수가 숫자가 아닐 경우 예외 발생")
@@ -63,7 +63,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateAttemptCountFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_ATTEMPT_NOT_NUMBER.getMessage());
+                .hasMessage(INVALID_ATTEMPT_NOT_NUMBER.toString());
     }
 
     @DisplayName("주어진 횟수가 0 이하일 경우 예외 발생")
@@ -73,7 +73,7 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateAttemptCountRange(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_ATTEMPT_RANGE.getMessage());
+                .hasMessage(INVALID_ATTEMPT_RANGE.toString());
     }
 
     @DisplayName("주어진 횟수가 공백일 경우 예외 발생")
@@ -83,6 +83,6 @@ public class InputValidatorTest {
         //when&then
         assertThatThrownBy(() -> inputValidator.validateAttemptCountFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_INPUT_NOT_BLANK.getMessage());
+                .hasMessage(INVALID_INPUT_NOT_BLANK.toString());
     }
 }

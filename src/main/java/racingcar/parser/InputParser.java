@@ -17,7 +17,7 @@ public class InputParser {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(INVALID_ATTEMPT_INT_RANGE.getMessage());
+            throw new IllegalArgumentException(INVALID_ATTEMPT_INT_RANGE.toString());
         }
     }
 }

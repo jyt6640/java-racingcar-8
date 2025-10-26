@@ -30,7 +30,7 @@ public class InputValidator {
 
     private void validateNotBlank(String cars) {
         if (cars == null || cars.isBlank()) {
-            throw new IllegalArgumentException(INVALID_INPUT_NOT_BLANK.getMessage());
+            throw new IllegalArgumentException(INVALID_INPUT_NOT_BLANK.toString());
         }
     }
 
@@ -38,7 +38,7 @@ public class InputValidator {
         if (cars.contains(COMMA)) {
             return;
         }
-        throw new IllegalArgumentException(INVALID_CAR_COUNT.getMessage());
+        throw new IllegalArgumentException(INVALID_CAR_COUNT.toString());
     }
 
     private void validateCarsNameFormat(String cars) {
@@ -46,7 +46,7 @@ public class InputValidator {
         if(matcher.matches()) {
             return;
         }
-        throw new IllegalArgumentException(INVALID_CAR_INPUT_FORMAT.getMessage());
+        throw new IllegalArgumentException(INVALID_CAR_INPUT_FORMAT.toString());
     }
 
     private void validateIsNumeric(String input) {
@@ -54,12 +54,12 @@ public class InputValidator {
         if(matcher.matches()) {
             return;
         }
-        throw new IllegalArgumentException(INVALID_ATTEMPT_NOT_NUMBER.getMessage());
+        throw new IllegalArgumentException(INVALID_ATTEMPT_NOT_NUMBER.toString());
     }
 
     public void validateAttemptCountRange(int attemptCount) {
         if (attemptCount <= ZERO) {
-            throw new IllegalArgumentException(INVALID_ATTEMPT_RANGE.getMessage());
+            throw new IllegalArgumentException(INVALID_ATTEMPT_RANGE.toString());
         }
     }
 }

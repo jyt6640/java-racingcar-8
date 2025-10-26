@@ -65,6 +65,6 @@ public class InputParserTest {
         //when&then
         assertThatThrownBy(() -> inputParser.parseAttemptCount(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(INVALID_ATTEMPT_INT_RANGE.getMessage());
+                .hasMessage(INVALID_ATTEMPT_INT_RANGE.toString());
     }
 }

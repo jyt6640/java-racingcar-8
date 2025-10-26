@@ -25,13 +25,13 @@ public class Car {
 
     private void validateCarNameLength(String carName) {
         if(carName.length() > CAR_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH.getMessage());
+            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH.toString());
         }
     }
 
     private void validateNameNotBlank(String carName) {
         if(carName.isBlank()) {
-            throw new IllegalArgumentException(INVALID_CAR_NAME_NOT_BLANK.getMessage());
+            throw new IllegalArgumentException(INVALID_CAR_NAME_NOT_BLANK.toString());
         }
     }
 

@@ -58,6 +58,6 @@ public class CarsTest {
         //when&then
         assertThatThrownBy(() ->  new Cars(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(DUPLICATE_CAR_NAME.getMessage());
+                .hasMessage(DUPLICATE_CAR_NAME.toString());
     }
 }

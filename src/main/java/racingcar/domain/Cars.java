@@ -49,7 +49,7 @@ public class Cars {
         if(uniqueNames.size() == names.size()) {
             return;
         }
-        throw new IllegalArgumentException(DUPLICATE_CAR_NAME.getMessage());
+        throw new IllegalArgumentException(DUPLICATE_CAR_NAME.toString());
     }
 
     public String findWinner() {
