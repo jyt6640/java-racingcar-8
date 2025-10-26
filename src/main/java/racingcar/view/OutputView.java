@@ -10,7 +10,6 @@ public class OutputView {
 
     public static void printRaceResult(String result) {
         System.out.println(result);
-        System.out.println();
     }
 
     public static void printWinners(String Winners) {
