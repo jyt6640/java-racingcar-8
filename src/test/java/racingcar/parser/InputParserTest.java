@@ -27,4 +27,17 @@ public class InputParserTest {
         //then
         assertEquals(List.of("pobi","woni","jun"), result);
     }
+
+    @DisplayName("시도 횟수 문자열에서 int로 변환")
+    @Test
+    void 시도_횟수_문자열에서_int로_변환() {
+        //given
+        String input = "5";
+
+        //when
+        int result = inputParser.parseAttemptCount(input);
+
+        //then
+        assertEquals(5, result);
+    }
 }
