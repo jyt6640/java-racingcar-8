@@ -28,11 +28,9 @@ public class InputValidator {
         throw new IllegalArgumentException("입력 형식이 잘못되었습니다.");
     }
 
-    public int validateAttemptCount(String attemptCounts) {
-        validateAttemptNotBlank(attemptCounts);
-        int attemptCount = Integer.parseInt(attemptCounts);
-        validateAttemptCountRange(attemptCount);
-        return attemptCount;
+    public void validateAttemptCountFormat(String input) {
+        validateAttemptNotBlank(input);
+        validateIsNumeric(input);
     }
 
     public void validateIsNumeric(String input) {
@@ -43,15 +41,15 @@ public class InputValidator {
         throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
     }
 
-    private void validateAttemptCountRange(int attemptCount) {
-        if (attemptCount <= 0) {
-            throw new IllegalArgumentException("시도 횟수는 1회 이상이여야 합니다.");
-        }
-    }
-
     private void validateAttemptNotBlank(String attemptCounts) {
         if (attemptCounts == null || attemptCounts.isBlank()) {
             throw new IllegalArgumentException("주어진 횟수가 공백일 수 없습니다.");
+        }
+    }
+
+    public void validateAttemptCountRange(int attemptCount) {
+        if (attemptCount <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 1회 이상이여야 합니다.");
         }
     }
 }
