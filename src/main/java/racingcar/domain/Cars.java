@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,6 +14,13 @@ public class Cars {
         this.cars = names.stream()
                 .map(Car::new)
                 .toList();
+    }
+
+    public void moveAll() {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            car.move(randomNumber);
+        }
     }
 
     public List<Car> getCars() {

@@ -12,10 +12,7 @@ public class RacingGameService {
     }
 
     public void playRound() {
-        for (Car car : cars.getCars()) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
-            car.move(randomNumber);
-        }
+        cars.moveAll();
     }
 
     public String getRoundResult() {
