@@ -77,7 +77,7 @@ jun : -----
 - [X] 사용자로부터 경주할 자동차 이름 입력 받기
     - [X] 자동차 이름 입력 안내 메시지 출력
     - [X] 사용자 입력 받기
-    - [ ] 입력값 앞뒤 공백 제거
+    - [X] 입력값 앞뒤 공백 제거
   
 
 - [X] 사용자로부터 시도할 횟수 입력 받기
@@ -177,25 +177,25 @@ jun : -----
 
 ---
 
-## 이전 문제에 대한 코드 리뷰
+## 이전 문제에 대한 코드 리뷰에서 생각해볼 점
 ### 아키텍처 & 설계
-- [ ] try-catch문은 메서드처럼 생각하여 Input/Output과 같이 예외를 던지지 않는 클래스에서만 사용
-- [ ] 단일 책임 원칙(SRP) 준수
-- [ ] 메서드가 하나의 역할만 수행하도록 분리
+- [X] try-catch문은 메서드처럼 생각하여 Input/Output과 같이 예외를 던지지 않는 클래스에서만 사용
+- [X] 단일 책임 원칙(SRP) 준수
+- [X] 메서드가 하나의 역할만 수행하도록 분리
 
 ### 상수 관리
-- [ ] 문자열 및 기본값은 상수로 관리
+- [X] 문자열 및 기본값은 상수로 관리
 
 ### 코드 컨벤션
-- [ ] Google Java Style Guide 준사
+- [X] Google Java Style Guide 준사
 
 ### 예외 처리
-- [ ] 검증 로직에서 `return false` 대신 `throw new IllegalArgumentException()` 사용
-- [ ] 이미 검증된 값은 중복 검증 방지
+- [X] 검증 로직에서 `return false` 대신 `throw new IllegalArgumentException()` 사용
+- [X] 이미 검증된 값은 중복 검증 방지
 
 ### Java 기능 활용
-- [ ] `trim()` 대신 `strip()` 사용 (Java 11+)
-- [ ] Stream API 적극 활용 `.collect(Collectors.toList())` 대신 `.toList()` (Java 17+)
+- [X] `trim()` 대신 `strip()` 사용 (Java 11+)
+- [X] Stream API 적극 활용 `.collect(Collectors.toList())` 대신 `.toList()` (Java 17+)
 
 ### 테스트 코드
 - [ ] `@MethodSource` 대신 `@CsvSource` 사용으로 가독성 향상
@@ -203,8 +203,8 @@ jun : -----
 - [ ] `assertThatThrownBy`와 `assertThrows` 일관되게 사용
 
 ### 네이밍 & 가독성
-- [ ] 부정 조건문 대신 긍정 조건문 지양
-- [ ] 메서드명으로 의도를 명확히 표현
+- [X] 부정 조건문 대신 긍정 조건문 지향
+- [X] 메서드명으로 의도를 명확히 표현
 
 ### 자료구조 일관성
-- [ ] 배열(String[]) 대신 -> 컬렉션으로 관리
+- [X] 배열(String[]) 대신 -> 컬렉션으로 관리
