@@ -1,5 +1,6 @@
 package racingcar.parser;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
@@ -39,5 +40,17 @@ public class InputParserTest {
 
         //then
         assertEquals(5, result);
+    }
+
+    @DisplayName("시도 횟수가 int 범위 밖일 경우 예외 발생")
+    @Test
+    void 시도_횟수가_int_범위_밖일_경우_예외_발생() {
+        //given
+        String input = "99999999999999";
+
+        //when&then
+        assertThatThrownBy(() -> inputParser.parseAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("시도 횟수는 int 범위를 넘어갈 수 없습니다.");
     }
 }
