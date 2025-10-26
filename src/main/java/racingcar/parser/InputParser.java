@@ -9,4 +9,8 @@ public class InputParser {
                 .map(String::strip)
                 .toList();
     }
+
+    public int parseAttemptCount(String input) {
+        return Integer.parseInt(input);
+    }
 }
