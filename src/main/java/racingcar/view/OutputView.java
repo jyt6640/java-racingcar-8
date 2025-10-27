@@ -9,6 +9,7 @@ public class OutputView {
     }
 
     public static void printRunResult() {
+        System.out.println();
         System.out.println(RUN_RESULT_MESSAGE);
     }
 
