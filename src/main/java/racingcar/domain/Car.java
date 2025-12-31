@@ -9,4 +9,8 @@ public class Car {
         this.name = name;
         this.position = position;
     }
+
+    public void movingForward() {
+        position++;
+    }
 }
