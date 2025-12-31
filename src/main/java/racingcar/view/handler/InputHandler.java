@@ -2,6 +2,7 @@ package racingcar.view.handler;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.domain.Cars;
 import racingcar.view.InputView;
 
 public class InputHandler {
@@ -12,9 +13,10 @@ public class InputHandler {
         this.inputView = inputView;
     }
 
-    public List<String> getCars() {
+    public Cars getCars() {
         String carNames = inputView.readCarNames();
-        return Arrays.asList(carNames.split(","));
+        List<String> cars = Arrays.asList(carNames.split(","));
+        return new Cars(cars);
     }
 
     public int getCount() {

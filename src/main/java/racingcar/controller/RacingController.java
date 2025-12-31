@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Cars;
 import racingcar.view.handler.InputHandler;
 
 public class RacingController {
@@ -12,7 +13,7 @@ public class RacingController {
     }
 
     public void run() {
-        List<String> cars = inputHandler.getCars();
+        Cars cars = inputHandler.getCars();
         int tryCount = inputHandler.getCount();
     }
 }
