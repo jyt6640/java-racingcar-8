@@ -18,4 +18,8 @@ public class RacingService {
         cars.moveAll(random);
         return cars.roundResult();
     }
+
+    public String winner() {
+        return cars.findWinner();
+    }
 }

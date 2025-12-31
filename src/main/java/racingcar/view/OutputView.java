@@ -9,4 +9,8 @@ public class OutputView {
     public void printRaceResult(String raceResult) {
         System.out.println(raceResult);
     }
+
+    public void printWinner(String winner) {
+        System.out.println("최종 우승자 : " + winner);
+    }
 }
