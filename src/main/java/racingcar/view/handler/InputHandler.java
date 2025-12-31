@@ -14,13 +14,21 @@ public class InputHandler {
     }
 
     public Cars getCars() {
-        String carNames = inputView.readCarNames();
-        List<String> cars = Arrays.asList(carNames.split(","));
+        String carNames = inputView.readCarNames().strip();
+        validateEmpty(carNames);
+        List<String> cars = Arrays.asList(carNames.split(",", -1));
         return new Cars(cars);
     }
 
     public int getCount() {
-        String count = inputView.readTryCount();
+        String count = inputView.readTryCount().strip();
+        validateEmpty(count);
         return Integer.parseInt(count);
+    }
+
+    private void validateEmpty(String input) {
+        if (input.isBlank()) {
+            throw new IllegalArgumentException("[ERROR] 입력 값이 공백입니다.");
+        }
     }
 }
