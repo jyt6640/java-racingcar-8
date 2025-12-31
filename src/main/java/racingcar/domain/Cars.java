@@ -21,4 +21,15 @@ public class Cars {
             }
         }
     }
+
+    public String roundResult() {
+        StringBuilder result = new StringBuilder();
+        for (Car car : cars) {
+            result.append(car.getName())
+                    .append(" : ")
+                    .append("-".repeat(car.getPosition()))
+                    .append("\n");
+        }
+        return result.toString();
+    }
 }
