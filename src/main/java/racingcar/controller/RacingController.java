@@ -16,11 +16,16 @@ public class RacingController {
     }
 
     public void run() {
-        Cars cars = inputHandler.getCars();
-        int tryCount = inputHandler.getCount();
-        outputView.printRunResult();
-        String winner = playGame(cars, tryCount);
-        outputView.printWinner(winner);
+        try {
+            Cars cars = inputHandler.getCars();
+            int tryCount = inputHandler.getCount();
+            outputView.printRunResult();
+            String winner = playGame(cars, tryCount);
+            outputView.printWinner(winner);
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e);
+            throw e;
+        }
     }
 
     private String playGame(Cars cars, int tryCount) {
