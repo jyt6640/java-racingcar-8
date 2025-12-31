@@ -17,7 +17,7 @@ public class Cars {
     public void moveAll(Random random) {
         for (Car car : cars) {
             int randomValue = random.random();
-            if (randomValue >= 5) {
+            if (randomValue >= 4) {
                 car.movingForward();
             }
         }
@@ -35,10 +35,6 @@ public class Cars {
     }
 
     public String findWinner() {
-        for (Car car : cars) {
-
-        }
-
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition())
                 .map(Car::getName)
